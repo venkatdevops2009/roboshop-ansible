@@ -5,7 +5,7 @@
     instances: ["mongodb", "redis", "mysql", "rabbitmq"]
     image_id : ami-0220d79f3f480ecf5
     domain_name : piridi.shop.online
-    action : delete
+    action : destroy
   tasks:
     - name : create ec2 instance
       amazon.aws.ec2_instance:
@@ -27,5 +27,5 @@
         wait: false
         region: us-east-1
       loop: "{{ instances  }}"  
-      when: action == "delete"
+      when: action == "destroy"
       
