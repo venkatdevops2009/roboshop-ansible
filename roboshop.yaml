@@ -1,0 +1,21 @@
+- name : Roboshop instances management
+  hosts: local
+  connection: local
+  vars: ["mongodb", "redis", "mysql", "rabbitmq"]
+  image_id : ami-0220d79f3f480ecf5
+  domain_name : piridi.shop.online
+  action : create
+  tasks:
+    - name : create ec2 instance
+      amazon.aws.ec2_instance:
+        instance_type: t2.micro
+        name : "roboshop-{{ item }}"
+        image_id : {{ image_id }}
+        region : us-east-1
+        security_groups:
+          - "roboshop-{{ item }}"
+          - roboshop-common
+        loop: "{{ instances }}"
+        register: ec2_output
+      when: action == "create"
+      
