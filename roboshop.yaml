@@ -69,7 +69,7 @@
     amazon.aws.route53:
       state: absent
       zone: "{{ domain_name }}"
-      record: "{{ domain_name }}" # daws90s.shop
+      record: "{{ domain_name }}" 
       ttl: 1
       type: A
     loop: "{{ instances  }}"  
