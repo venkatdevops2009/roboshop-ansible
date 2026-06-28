@@ -4,8 +4,8 @@ MONGODB_HOST: mongodb.piridishop.shop
 REDIS_HOST: redis.piridishop.shop
 MYSQL_HOST: 172.31.1.94 
 RABBITMQ_HOST: rabbitmq.piridishop.shop 
-CATALOGUE_HOST: catalogue.piridishop.shop
-USER_HOST: user.piridishop.shop
-CART_HOST: cart.piridishop.shop
-SHIPPING_HOST: shipping.piridishop.shop
-PAYMENT_HOST: payment.piridishop.shop
+CATALOGUE_HOST: 172.31.1.128
+USER_HOST: 172.31.7.142
+CART_HOST: 172.31.3.198
+SHIPPING_HOST: 172.31.5.185
+PAYMENT_HOST: 172.31.0.149
