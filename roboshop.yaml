@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars: 
-    instance: ["mongodb", "redis", "mysql", "rabbitmq"]
+    instances: ["mongodb", "redis", "mysql", "rabbitmq"]
     image_id : ami-0220d79f3f480ecf5
     domain_name : piridi.shop.online
     action : create
