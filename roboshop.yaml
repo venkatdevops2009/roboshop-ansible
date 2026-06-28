@@ -5,7 +5,7 @@
     instances: ["mongodb", "redis", "mysql", "rabbitmq"]
     image_id : ami-0220d79f3f480ecf5
     domain_name : piridi.shop.online
-    action : create
+    action : delete
   tasks:
     - name : create ec2 instance
       amazon.aws.ec2_instance:
@@ -19,4 +19,13 @@
       loop: "{{ instances }}"
       register: ec2_output
       when: action == "create"
+
+    - name: delete ec2 instances
+      amazon.aws.ec2_instance:
+       state: absent
+       name: "roboshop-{{ item }}"
+       wait: false
+      region: us-east-1
+      loop: "{{ instances  }}"  
+      when: action == "delete"
       
